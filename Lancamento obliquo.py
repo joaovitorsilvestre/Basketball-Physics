@@ -1,3 +1,5 @@
+### PYTHON VERSION: 3.X
+
 import math
 import matplotlib.pyplot as plt
 import numpy as np
@@ -62,12 +64,12 @@ def exibicao(tempo,dist,h_max):
 
     plt.show()
 
-def run():
+def run(quique_porcem):
     v_saida = float(input('Velocidade de saida: '))  #100
     angulo = float(input('Angulo de saida: '))       #37
     primeiro = calculo(v_saida,angulo)
     tempo_quique = primeiro[2]
-    v_retorno_x = abs(v_saida*0.7)       ##### SUBSTITUIR PARA A VARIAVEL CORRETA
+    v_retorno_x = abs(v_saida*(quique_porcem/100))       ##### SUBSTITUIR PARA A VARIAVEL CORRETA
     v_retorno_y = abs(((tempo_quique/2)*gravidade)*0.7)
     v_retorno = ((v_retorno_x**2) + (v_retorno_y**2))**0.5 ### teorema de pitagoras para encontrar o 'modulo'
     quique = calculo(v_retorno,angulo)
@@ -75,6 +77,6 @@ def run():
     print('retorno {} , retorno x {}, retorno y {}'.format(v_retorno,v_retorno_x,v_retorno_y))
     print(quique)
 
-run()
+run(quique_porcem)
 
 '''http://www3.iesam-pa.edu.br/ojs/index.php/computacao/article/viewFile/530/432  -- REFERENCIA'''
